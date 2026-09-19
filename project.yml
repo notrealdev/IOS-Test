@@ -15,3 +15,10 @@ targets:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.test.IOS-Test
         SWIFT_VERSION: 5.0
+        GENERATE_INFOPLIST_FILE: YES
+    schemes:
+      IOS-Test:
+        build:
+          targets:
+            IOS-Test: all
+        shared: true
