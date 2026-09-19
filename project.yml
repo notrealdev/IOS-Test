@@ -1,17 +1,17 @@
 name: IOS-Test
 
 options:
-	bundleIdPrefix: com.test
+  bundleIdPrefix: com.test
 
 targets:
-	IOS-Test:
-		type: application
-		platform: iOS
-		deploymentTarget: "18.0"
-		sources:
-			- IOS-TestApp.swift
-			- ContentView.swift
-		settings:
-			base:
-				PRODUCT_BUNDLE_IDENTIFIER: com.test.IOS-Test
-				SWIFT_VERSION: 5.0
+  IOS-Test:
+    type: application
+    platform: iOS
+    deploymentTarget: "18.0"
+    sources:
+      - IOS-TestApp.swift
+      - ContentView.swift
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.test.IOS-Test
+        SWIFT_VERSION: 5.0
