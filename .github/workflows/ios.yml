@@ -29,9 +29,12 @@ jobs:
             -derivedDataPath build \
             build
 
+      - name: List available simulators
+        run: xcrun simctl list devices available
+
       - name: Boot simulator and run app
         run: |
-          xcrun simctl boot "iPhone 16" || true
+          xcrun simctl boot "iPhone 17" || true
           xcrun simctl bootstatus booted -b
           xcrun simctl install booted build/Build/Products/Debug-iphonesimulator/IOS-Test.app
           xcrun simctl launch booted com.test.IOS-Test
