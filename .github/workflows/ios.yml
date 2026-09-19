@@ -26,5 +26,20 @@ jobs:
             -scheme IOS-Test \
             -sdk iphonesimulator \
             -configuration Debug \
-            -destination 'generic/platform=iOS Simulator' \
+            -derivedDataPath build \
             build
+
+      - name: Boot simulator and run app
+        run: |
+          xcrun simctl boot "iPhone 16" || true
+          xcrun simctl bootstatus booted -b
+          xcrun simctl install booted build/Build/Products/Debug-iphonesimulator/IOS-Test.app
+          xcrun simctl launch booted com.test.IOS-Test
+          sleep 3
+          xcrun simctl io booted screenshot screenshot.png
+
+      - name: Upload screenshot
+        uses: actions/upload-artifact@v4
+        with:
+          name: screenshot
+          path: screenshot.png
